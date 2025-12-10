@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estación Tenosique</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f3;
+            color: #333;
+        }
+
+        .carousel h1 { 
+            font-family: "DM Serif Text", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 70px;
+            color: white; 
+            text-align: center;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+            z-index: 2;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 40%; 
+            width: 90%;
+        }
+
+        .carousel p {
+            font-family: "Jost", sans-serif;
+            font-size: 50px;
+            color: #D4AF37; 
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+            z-index: 2;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 55%;
+            width: 90%;
+            text-align: center;
+        }
+        h3 {
+    font-family: "Cinzel Decorative", cursive;
+    text-align: center;
+    color: black; 
+    font-size: 2.5em; 
+    margin: 30px 0 20px 0; 
+    text-transform: capitalize; 
+    letter-spacing: 2px;
+    font-weight: 700; 
+}
+
+        .carousel { 
+            position: relative;
+            overflow: hidden;
+            height: 650px; 
+        }
+        .carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .carousel img.active {
+            opacity: 1;
+        }
+        .carousel::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(155, 158, 144, 0.3); 
+            backdrop-filter: blur(6px);
+            padding: 10px 20px;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+            box-sizing: border-box; 
+        }
+
+        header img {
+            height: 70px; 
+            width: auto;
+        }
+        header img:nth-child(2) {
+            height: 80px; /
+        }
+        .menu-principal {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .menu-principal a {
+            background: #00695c;
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 18px;
+            margin: 10px;
+            transition: 0.3s;
+        }
+        .menu-principal a:hover {
+            background: #004d40;
+            transform: scale(1.05);
+        }
+
+        
+.menus {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 15px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.menus div {
+    position: relative; 
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(8, 114, 96, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+    cursor: pointer; 
+    background: rgba(255, 255, 255, 0.863);
+    text-align: center;
+    padding: 20px;
+     font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;;
+}
+.menus div:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3); 
+    background: #00867b; 
+}
+
+.menus div a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10; 
+    text-decoration: none;
+    display: block;
+    margin: 0;
+    padding: 0;
+    color: transparent !important; 
+    background: transparent !important;
+}
+
+
+.menus div strong {
+    font-weight: bold;
+    color: #004d40; 
+    font-size: 1.2em;
+    display: block;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+    text-align: center;
+    position: relative; 
+    z-index: 1; 
+}
+
+.menus div:hover strong {
+    color: #000000; 
+}
+
+
+.menus p {
+    margin: 5px 0;
+    color: #000000; 
+    text-align: left;
+    position: relative;
+    z-index: 1; 
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+.menus div:hover p {
+    color: #FFFFFF; 
+}
+
+        .recomendaciones {
+            background: rgba(0,77,64,0.9);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px; 
+            padding: 15px; 
+            border-radius: 10px;
+            text-align: center;
+        }
+        .recomendaciones a {
+            background: #0ea894b4;
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+        .recomendaciones a:hover {
+            background: #0ac7bd;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #004d40;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        footer img {
+            width: 30px;
+            transition: transform 0.3s;
+        }
+        footer img:hover {
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            /* === HEADER AJUSTES === */
+            header {
+                justify-content: space-around;
+                padding: 5px 10px;
+            }
+            header img {
+                height: 40px; 
+            }
+            header img:nth-child(2) {
+                height: 50px; 
+            }
+
+            /* === CARRUSEL Y TEXTO DENTRO AJUSTES === */
+            .carousel {
+                /* Altura reducida para móviles, mantiene la proporción de la imagen sin estirarla */
+                height: 400px;
+            }
+            
+            .carousel img {
+                /* Se elimina la altura fija aquí para que object-fit: cover funcione correctamente */
+                /* height: 400px; <--- Línea eliminada/comentada */
+            }
+            
+            .carousel h1 { 
+                font-size: 38px; 
+                top: 35%; 
+                /* Se añade white-space: normal para permitir que el título se rompa en varias líneas si es necesario */
+                white-space: normal;
+            }
+            .carousel p { 
+                font-size: 20px;
+                top: 52%; 
+            }
+            
+            /* === TÍTULO H3 AJUSTES === */
+            h3 {
+                /* Reduce el tamaño de la fuente del título principal */
+                font-size: 1.8em; 
+                margin: 20px 10px 15px 10px; 
+                /* Permite que el texto se ajuste en el ancho del móvil */
+                padding: 0 10px;
+            }
+
+            /* === MENÚS AJUSTES === */
+            .menus {
+                padding: 10px;
+            }
+            .menus div {
+                min-height: 120px;
+                padding: 15px;
+            }
+            .menus div:hover {
+                transform: scale(1.02); 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="https://www.trenmaya.gob.mx/images/Logotipo_TM_H.png" alt="Logo Tren Maya">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Defensa_Logo_%282024%29.png/1200px-Defensa_Logo_%282024%29.png" alt="Logo SEDENA">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/3_Tenosique.png" alt="Logo Tenosique">
+    </header>
+
+    <section class="carousel">
+    <img src="letra_tenosique.jpg" alt="Tren Maya 1">
+    <img src="TREN.jpeg" alt="Tren Maya 2">
+    <img src="atardecer.png" alt="Tren Maya 3">
+    <img src="Estación Tren Maya en diferentes momentos (1).png" alt="Tren Maya 4">
+    <img src="tren1.jpg" alt="Tren Maya 4">
+    <img src="tren3.jpg" alt="Tren Maya 4">
+        
+        <h1>TREN MAYA</h1>
+        <p>Estación Tenosique</p>
+    </section>
+
+    <div class="menu-principal">
+        <a href="conoce.html">Conoce la estación Tenosique aquí</a>
+    </div>
+    <h3>Elige tu tarifa correspondiente</h3>
+
+    <section class="menus">
+      <div>
+        <a href="Turista-especial.html"></a> 
+        <strong>Turista Especial</strong>
+        <p>Personas que cuenten con credenciales vigentes de: Maestros, Estudiantes, INAPAM, ISSFAM y SEDENA.</p>
+    </div>
+    <div>
+        <a href="Turista-local.html"></a> 
+        <strong>Turista Local</strong>
+        <p>Personas que cuenten con INE emitida en los estados de: Chiapas, Tabasco, Campeche, Yucatán, Quintana Roo.</p>
+    </div>
+    <div>
+        <a href="turista_nacional.html"></a> 
+        
+        <strong>Turista Nacional</strong>
+        <p>Personas que cuenten con INE emitida en cualquier otro estado distinto a: Chiapas, Tabasco, Campeche, Yucatán, Quintana Roo.</p>
+    </div>
+    <div>
+        <a href="Turista-internacional.html"></a> 
+        <strong>Turista Internacional</strong>
+        <p>Persona con nacionalidad extranjera, que cuenten con Pasaporte o Residencia Permanente vigente.</p>
+    </div>
+    <div>
+        <a href="premier_nacional.html"></a> 
+        <strong>Premier Nacional</strong>
+        <p>Categoría más alta para los mexicanos, con: Servicio de Catering, Asientos más amplios y cómodos.</p>
+    </div>
+
+    <div>
+        <a href="premier-internacional.html"></a> 
+        <strong>Premier Internacional</strong>
+        <p>Categoría más alta para los extranjeros, con: Servicio de Catering, Asientos más amplios y cómodos.</p>
+    </div>
+
+    
+
+    
+</section>
+
+    <section class="recomendaciones">
+        <p><strong>Horario de atención:</strong> 7:00 am - 6:00 pm</p>
+        <a href="recomendaciones.html">Conoce las recomendaciones aquí</a>
+    </section>
+
+    <footer>
+        <a href="https://www.facebook.com/share/1F4jHgETGV5/" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/trenmaya_oficial/?igsh=MWh3aDZoZDZlnewsS0NA==" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+        </a>
+    </footer>
+
+    <script>
+        let current = 0;
+        const slides = document.querySelectorAll('.carousel img');
+        setInterval(() => {
+            slides[current].classList.remove('active');
+            current = (current + 1) % slides.length;
+            slides[current].classList.add('active');
+        }, 6000);
+    </script>
+
+</body>
+</html>
